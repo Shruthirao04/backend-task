@@ -1,0 +1,8 @@
+# Schema for the configuration files of the entity form module.
+entity_form.settings:
+  type: config_object
+  label: 'entity form settings'
+  mapping:
+    example:
+      type: string
+      label: 'Example'

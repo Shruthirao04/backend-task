@@ -1,0 +1,6 @@
+template_form.settings_form:
+  title: 'template form'
+  description: 'Configure template form.'
+  parent: system.admin_config_system
+  route_name: template_form.settings_form
+  weight: 10

@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Different hooks.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function checkbox_config_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // exit;.
+  $config = \Drupal::config('checkbox_config.settings');
+  $title = $config->get('title');
+  $checkbox = $config->get('checkbox');
+  $entity = $config->get('vocabulary');
+  // print_r('title');exit;.
+  $form['title']['widget']['0']['value']['#default_value'] = $title;
+  $form['field_checkbox']['widget'][0]['value']['#default_value'] = $checkbox;
+
+  // print_r('checkbox');exit;.
+  if ($entity) {
+    $entity = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($entity);
+    $form['field_tags']['widget'][0]['target_id']['#default_value'] = $entity;
+  }
+  // print_r('vocabulary');exit;.
+}

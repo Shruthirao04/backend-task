@@ -1,0 +1,16 @@
+custom_task.example:
+  path: '/custom-task/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\custom_task\Controller\CustomTaskController::build'
+  requirements:
+    _permission: 'access content'
+
+custom_task.form:
+  path: '/custom-form'
+  defaults:
+    _title: 'Custom Form'
+    _form: '\Drupal\custom_task\Form\CustomForm'
+  requirements:
+    _permission: 'access content'
+

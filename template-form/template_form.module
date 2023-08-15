@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for template form module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function template_form_theme($existing, $type, $theme, $path) {
+  return [
+    'custom_template' => [
+      'variables' => [
+        'text' => "",
+        'title' => "",
+        'color' => "",
+      ],
+    ],
+  ];
+}

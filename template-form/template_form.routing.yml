@@ -1,0 +1,15 @@
+template_form.example:
+  path: '/template-form/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\template_form\Controller\TemplateFormController::build'
+  requirements:
+    _permission: 'access content'
+
+template_form.settings_form:
+  path: '/admin/config/system/template-form'
+  defaults:
+    _title: 'template form settings'
+    _form: 'Drupal\template_form\Form\SettingsForm'
+  requirements:
+    _permission: 'administer template_form configuration'

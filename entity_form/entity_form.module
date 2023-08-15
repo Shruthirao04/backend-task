@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Diffrent hooks.
+ */
+
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * Implements hook_node_access().
+ */
+function entity_form_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  $config = \Drupal::config('entity_form.settings');
+  $selected_roles = $config->get('roles');
+  $selected_content_types = $config->get('content_types');
+  $user_roles = $account->getRoles();
+  $has_selected_role = !empty(array_intersect($user_roles, $selected_roles));
+  $is_selected_content_type = in_array($node->getType(), $selected_content_types);
+  if ($has_selected_role && $is_selected_content_type && $op == 'view') {
+    return AccessResult::allowed();
+  }
+  else {
+    return AccessResult::forbidden();
+  }
+}

@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the custom task module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+// function custom_task_install() {
+//   \Drupal::messenger()->addStatus(__FUNCTION__);
+// }
+
+/**
+ * Implements hook_uninstall().
+ */
+// function custom_task_uninstall() {
+//   \Drupal::messenger()->addStatus(__FUNCTION__);
+// }
+
+/**
+ * Implements hook_schema().
+ */
+function custom_task_schema() {
+  $schema['custom_task_example'] = [
+    'description' => 'Table description.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      // 'uid' => [
+      //   'type' => 'int',
+      //   'unsigned' => TRUE,
+      //   'not null' => TRUE,
+      //   'default' => 0,
+      //   'description' => 'The {users}.uid of the user who created the record.',
+      // ],
+      'firstname' => [
+        'description' => 'firstname',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ],
+      'lastname' => [
+        'description' => 'lastname',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        // 'default' => '',
+      ],
+      'email' => [
+        'description' => 'email',
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 64,
+      ],
+      'phone' => [
+        'description' => 'phone',
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 64,
+      ],
+        'gender' => [
+        'description' => 'gender',
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 64,
+      ],
+    ],
+    'primary key' => ['id'],
+    // 'indexes' => [
+    //   'type' => ['type'],
+    //   'uid' => ['uid'],
+    //   'status' => ['status'],
+    // ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_requirements().
+ */
+// function custom_task_requirements($phase) {
+//   $requirements = [];
+
+//   if ($phase == 'runtime') {
+//     $value = mt_rand(0, 100);
+//     $requirements['custom_task_status'] = [
+//       'title' => t('custom task status'),
+//       'value' => t('custom task value: @value', ['@value' => $value]),
+//       'severity' => $value > 50 ? REQUIREMENT_INFO : REQUIREMENT_WARNING,
+//     ];
+//   }
+
+//   return $requirements;
+// }

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Various hooks.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function custom_task_theme($existing, $type, $theme, $path) {
+  return [
+    'task_template' => [
+      'variables' => [
+        'rows' => [],
+      ],
+    ],
+  ];
+}

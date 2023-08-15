@@ -1,0 +1,6 @@
+checkbox_config.settings_form:
+  title: 'checkbox config'
+  description: 'Configure checkbox config.'
+  parent: system.admin_config_system
+  route_name: checkbox_config.settings_form
+  weight: 10
